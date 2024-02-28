@@ -24,3 +24,7 @@
     opacity: 0.4;
     z-index: -1;
 }
+
+.menutransparente{
+    background-color: transparent;
+}

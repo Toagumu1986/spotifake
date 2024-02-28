@@ -22,27 +22,28 @@ botonFormulario.addEventListener("click",function(evento){
 
 
    //Validando los datos del usuario
-   if(usuarioBaseDatos==nombreUsuario){
+   if(usuarioBaseDatos==nombreUsuario && contrasenaBaseDatos==passwordUsuario && correoBaseDatos==correoUsuario){
     Swal.fire({
         title: "Bienvenido "+nombreUsuario,
         text: "Tus credenciales son correctas",
         icon: "success"
       })
 
-      window.location.href="./src/views/home.html"
+      setTimeout(function(){
+         sessionStorage.setItem("nombre",nombreUsuario)
+         sessionStorage.setItem("password",passwordUsuario)
+         sessionStorage.setItem("email",correoUsuario)
+         window.location.href="./src/views/home.html"
+      },3000)
+      
 
    }else{
         Swal.fire({
         icon: "error",
         title: "Oops..."+nombreUsuario+ "tienes problemas",
-        text: "Verifica tus credenciales",
-        
+        text: "Verifica tus credenciales",        
       });
-
    }
-  
-
-
 })
 
 cajaFormularioEmail.addEventListener("click", function(){alert("digite su Email")})
